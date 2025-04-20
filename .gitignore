@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.spec
+
+# PyInstaller
+build/
+dist/
+*.spec
+*.manifest
+*.pkg
+*.toc
+*.zip
+*.exe
+*.dll
+*.so
+*.dylib
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Screenshots
+screenshots/
+
+# Installer scripts (optional, если не хотите их в репозитории)
+# install.bat
+# install.sh
+# uninstall.bat
+# uninstall.sh
