@@ -89,6 +89,10 @@ Now you can run GlowCode using the command ```glowcode``` or ```glowcode <filena
 
 ---
 
+## ⭐ Special thanks 
+
+Qwez
+
 <div align="center">
  
   <h1>Screenshots</h1>
