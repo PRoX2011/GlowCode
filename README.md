@@ -91,7 +91,7 @@ Now you can run GlowCode using the command ```glowcode``` or ```glowcode <filena
 
 ## ⭐ Special thanks 
 
-Qwez
+![Qwez-source](https://github.com/Qwez-source)
 
 <div align="center">
  
