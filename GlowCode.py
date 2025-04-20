@@ -698,8 +698,15 @@ Bash, PowerShell, Markdown
 if __name__ == "__main__":
     ctk.set_appearance_mode("dark")
     root = ctk.CTk()
-
+    ico_path = os.path.join(os.path.dirname(sys.argv[0]), "glowcode.ico")
+    if os.path.exists(ico_path):
+        if platform.system() == 'Windows':
+            root.iconbitmap(ico_path)
+        elif platform.system() == 'Linux':
+            try:
+                root.iconphoto(True, tk.PhotoImage(file=os.path.join(os.path.dirname(sys.argv[0]), "glowcode.png")))
+            except Exception:
+                pass
     file_path = sys.argv[1] if len(sys.argv) > 1 else None
     editor = CodeEditor(root, file_path)
-
     root.mainloop()
