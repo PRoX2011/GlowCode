@@ -1,9 +1,10 @@
 @echo off
 chcp 1251 >nul
-REM Проверка наличия прав администратора
+
+REM РџСЂРѕРІРµСЂРєР° РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё С„Р°Р№Р»Р° РѕС‚РєСЂС‹С‚РёСЏ
 openfiles >nul 2>&1
 if %errorlevel% NEQ 0 (
-    echo Запустите этот скрипт от имени администратора!
+    echo РџРѕР¶Р°Р»СѓР№СЃС‚Р°, Р·Р°РїСѓСЃС‚РёС‚Рµ СЌС‚РѕС‚ СЃРєСЂРёРїС‚ РѕС‚ РёРјРµРЅРё Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°!
     pause
     exit /b 1
 )
@@ -12,15 +13,15 @@ set "INSTALL_DIR=%ProgramFiles%\GlowCode"
 set "DESKTOP=%USERPROFILE%\Desktop"
 set "SHORTCUT=%DESKTOP%\GlowCode.lnk"
 
-echo Удаляю GlowCode из %INSTALL_DIR% ...
+echo РЈРґР°Р»РµРЅРёРµ GlowCode РёР· %INSTALL_DIR% ...
 del /F /Q "%INSTALL_DIR%\glowcode.exe"
 del /F /Q "%INSTALL_DIR%\glowcode.png"
 
-echo Удаляю ярлык с рабочего стола ...
+echo РЈРґР°Р»РµРЅРёРµ СЏСЂР»С‹РєР° СЃ СЂР°Р±РѕС‡РµРіРѕ СЃС‚РѕР»Р° ...
 del /F /Q "%SHORTCUT%"
 
-REM Удаляем папку, если она пуста
+REM РЈРґР°Р»РµРЅРёРµ РїР°РїРєРё, РµСЃР»Рё РѕРЅР° РїСѓСЃС‚Р° РёР»Рё СЃСѓС‰РµСЃС‚РІСѓРµС‚
 rmdir "%INSTALL_DIR%" 2>nul
 
-echo Удаление завершено!
+echo РЈРґР°Р»РµРЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ!
 pause
