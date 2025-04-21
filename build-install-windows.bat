@@ -1,18 +1,19 @@
 @echo off
 cd /d %~dp0
 chcp 1251 >nul
-REM Сборка GlowCode для Windows
+
+REM РљРѕРјРїРёР»СЏС†РёСЏ GlowCode СЃ РїРѕРјРѕС‰СЊСЋ PyInstaller РґР»СЏ Windows
 pyinstaller -D -F -n glowcode -w --onefile --noconsole "GlowCode.py" --distpath build/glowcode
 if %errorlevel% NEQ 0 (
-    echo Ошибка сборки!
+    echo РћС€РёР±РєР° РїСЂРё РєРѕРјРїРёР»СЏС†РёРё!
     pause
     exit /b 1
 )
 
-REM Проверка наличия прав администратора
+REM РџСЂРѕРІРµСЂРєР° РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё С„Р°Р№Р»Р° glowcode.exe
 openfiles >nul 2>&1
 if %errorlevel% NEQ 0 (
-    echo Запустите этот скрипт от имени администратора!
+    echo РџРѕР¶Р°Р»СѓР№СЃС‚Р°, СЂР°Р·Р±Р»РѕРєРёСЂСѓР№С‚Рµ С„Р°Р№Р» РёР»Рё Р·Р°РєСЂРѕР№С‚Рµ РІСЃРµ РїСЂРѕРіСЂР°РјРјС‹, РёСЃРїРѕР»СЊР·СѓСЋС‰РёРµ С„Р°Р№Р»С‹.
     pause
     exit /b 1
 )
@@ -24,24 +25,28 @@ set "INSTALL_DIR=%ProgramFiles%\GlowCode"
 set "DESKTOP=%USERPROFILE%\Desktop"
 set "SHORTCUT=%DESKTOP%\GlowCode.lnk"
 
+REM РџСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ С„Р°Р№Р»Р° glowcode.exe
 if not exist "%GLOWCODE_BIN%" (
-    echo Файл %GLOWCODE_BIN% не найден. Сборка не удалась.
+    echo Р¤Р°Р№Р» %GLOWCODE_BIN% РЅРµ РЅР°Р№РґРµРЅ. РЈСЃС‚Р°РЅРѕРІРєР° РЅРµРІРѕР·РјРѕР¶РЅР°.
     pause
     exit /b 1
 )
 
+REM РЎРѕР·РґР°РЅРёРµ РїР°РїРєРё РґР»СЏ СѓСЃС‚Р°РЅРѕРІРєРё, РµСЃР»Рё РѕРЅР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
+
+REM РљРѕРїРёСЂРѕРІР°РЅРёРµ С„Р°Р№Р»РѕРІ РІ РїР°РїРєСѓ СѓСЃС‚Р°РЅРѕРІРєРё
 copy /Y "%GLOWCODE_BIN%" "%INSTALL_DIR%\glowcode.exe" >nul
 copy /Y "%GLOWCODE_ICON%" "%INSTALL_DIR%\glowcode.png" >nul
 copy /Y "%GLOWCODE_ICO%" "%INSTALL_DIR%\glowcode.ico" >nul
 
-REM Создание ярлыка на рабочем столе
+REM РЎРѕР·РґР°РЅРёРµ СЏСЂР»С‹РєР° РЅР° СЂР°Р±РѕС‡РµРј СЃС‚РѕР»Рµ
 powershell -Command "$s=(New-Object -COM WScript.Shell).CreateShortcut('%SHORTCUT%');$s.TargetPath='%INSTALL_DIR%\glowcode.exe';$s.IconLocation='%INSTALL_DIR%\glowcode.ico';$s.Save()"
 
-REM Добавление ярлыка в меню Пуск
+REM РЎРѕР·РґР°РЅРёРµ СЏСЂР»С‹РєР° РІ РјРµРЅСЋ РџСѓСЃРє
 set "STARTMENU=%APPDATA%\Microsoft\Windows\Start Menu\Programs"
 set "STARTMENU_SHORTCUT=%STARTMENU%\GlowCode.lnk"
 powershell -Command "$s=(New-Object -COM WScript.Shell).CreateShortcut('%STARTMENU_SHORTCUT%');$s.TargetPath='%INSTALL_DIR%\glowcode.exe';$s.IconLocation='%INSTALL_DIR%\glowcode.ico';$s.Save()"
 
-echo Сборка и установка завершены.
+echo РЈСЃС‚Р°РЅРѕРІРєР° Рё СЃРѕР·РґР°РЅРёРµ СЏСЂР»С‹РєРѕРІ СѓСЃРїРµС€РЅРѕ Р·Р°РІРµСЂС€РµРЅС‹.
 pause
