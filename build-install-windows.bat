@@ -5,7 +5,7 @@ chcp 1251 >nul
 REM Компиляция GlowCode с помощью PyInstaller для Windows
 pyinstaller -D -F -n glowcode -w --onefile --noconsole "GlowCode.py" --distpath build/glowcode
 if %errorlevel% NEQ 0 (
-    echo Ошибка при компиляции!
+    echo Compilation error!
     pause
     exit /b 1
 )
@@ -13,7 +13,7 @@ if %errorlevel% NEQ 0 (
 REM Проверка доступности файла glowcode.exe
 openfiles >nul 2>&1
 if %errorlevel% NEQ 0 (
-    echo Пожалуйста, разблокируйте файл или закройте все программы, использующие файлы.
+    echo Please unblock the file or close all programs using the files.
     pause
     exit /b 1
 )
@@ -27,7 +27,7 @@ set "SHORTCUT=%DESKTOP%\GlowCode.lnk"
 
 REM Проверка существования файла glowcode.exe
 if not exist "%GLOWCODE_BIN%" (
-    echo Файл %GLOWCODE_BIN% не найден. Установка невозможна.
+    echo File %GLOWCODE_BIN% not found. Unable to install.
     pause
     exit /b 1
 )
@@ -48,5 +48,5 @@ set "STARTMENU=%APPDATA%\Microsoft\Windows\Start Menu\Programs"
 set "STARTMENU_SHORTCUT=%STARTMENU%\GlowCode.lnk"
 powershell -Command "$s=(New-Object -COM WScript.Shell).CreateShortcut('%STARTMENU_SHORTCUT%');$s.TargetPath='%INSTALL_DIR%\glowcode.exe';$s.IconLocation='%INSTALL_DIR%\glowcode.ico';$s.Save()"
 
-echo Установка и создание ярлыков успешно завершены.
+echo Installation and creation of shortcuts completed successfully.
 pause
