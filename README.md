@@ -57,8 +57,8 @@ python3 GlowCode.py
 #### 2) Installing on PC with Basch script
 Run the build file (build-linux.sh) to get the an executable file
 ```bash
-chmod +x build-linux.sh
-./build-linux.sh
+chmod +x build-install-linux.sh
+./build-install-linux.sh
 ```
 Then run the installation script
 ```bash
@@ -67,6 +67,14 @@ chmod +x install.sh
 ```
 
 Now you can run GlowCode using the command ```glowcode``` or ```glowcode <filename>```
+
+### Instalation in Windows
+Install customtkinter using pip:
+```
+pip install customtkinter
+```
+
+And run ```build-install-windows.bat``` as administrator
 
 ---
 
