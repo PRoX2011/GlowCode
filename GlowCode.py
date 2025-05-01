@@ -209,6 +209,16 @@ class CodeEditor:
                 'numbers': r'\b\d+\b',
                 'preprocessor': r'#.*?$'
             },
+            '.b': {
+                'keywords': [
+                    'auto', 'extrn', 'if', 'else', 'while', 'repeat', 'do', 'for', 
+                    'switch', 'case', 'default', 'break', 'next', 'return', 'goto'],
+                'comments': r'/\*.*?\*/',
+                'strings': ['".*?"'],
+                'functions': r'\b\w+\s*\(\s*.*?\s*\)\s*\{',
+                'numbers': r'\b\d+\b|\b0[0-7]+\b|\b\d+\.\d+([eE][+-]?\d+)?\b',
+                'operators': r'\+|\-|\*|\/|\%|\=|\==|\!=|\<|\>|\<=|\>=|\&\&|\|\||\&|\||\~|\<<|\>>|\+\+|\--'
+            },
             '.css': {
                 'selectors': r'[^{}]*\{',
                 'properties': r'(\b[\w-]+\b)(?=\s*:)',
@@ -458,6 +468,7 @@ class CodeEditor:
             '.h': 'C',
             '.hpp': 'C++',
             '.c': 'C',
+            '.b': 'B',
             '.css': 'CSS',
             '.js': 'JavaScript',
             '.sh': 'Bash',
@@ -492,6 +503,7 @@ class CodeEditor:
                     ("Assembly files", "*.asm"),
                     ("C++ files", "*.cpp"),
                     ("C files", "*.c *.h"),
+                    ("B files", "*.b"),
                     ("Bash scripts", "*.sh"),
                     ("PowerShell scripts", "*.ps1 *.bat"),
                     ("Markdown files", "*.md"),
@@ -527,6 +539,7 @@ class CodeEditor:
                     ("Assembly files", "*.asm"),
                     ("C++ files", "*.cpp"),
                     ("C files", "*.c *.h"),
+                    ("B files", "*.b"),
                     ("Bash scripts", "*.sh"),
                     ("PowerShell scripts", "*.ps1 *.bat"),
                     ("Markdown files", "*.md"),
@@ -686,7 +699,7 @@ for various programming and markup languages.
             text="""
 
 Python, HTML, CSS, JavaScript
-C, C++, HolyC, Rust
+C, B, C++, HolyC, Rust
 Assembly, BASIC, Dart
 Bash, PowerShell, Markdown
 """,
