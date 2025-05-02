@@ -19,7 +19,6 @@
 - ![Python](https://img.icons8.com/color/48/000000/python--v1.png) Python
 - ![C++](https://img.icons8.com/color/48/000000/c-plus-plus-logo.png) C++
 - ![C](https://img.icons8.com/color/48/000000/c-programming.png) C
-- ![B](https://img.icons8.com/?size=48&id=111063&format=png&color=000000) B
 -  <img src="https://github.com/PRoX2011/GlowCode/raw/main/screenshots/holyc.png" width="5%"> HolyC
 - ![Assembly](https://img.icons8.com/?size=50&id=gVK745a4Vaur&format=png&color=000000) Assembly
 - ![JavaScript](https://img.icons8.com/color/48/000000/javascript--v1.png) JavaScript
@@ -31,6 +30,7 @@
 - ![Markdown](https://img.icons8.com/?size=50&id=21827&format=png&color=FEFEFE) Markdown
 - ![Powershell](https://img.icons8.com/?size=50&id=59500&format=png&color=000000) Powershell
 - ### BASIC
+- ### B
 
 ---
 
